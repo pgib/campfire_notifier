@@ -26,9 +26,9 @@ class CampfireNotifier
   end
 
   def speak(message)
-    base_uri    "http://#{config['subdomain']}.campfirenow.com"
-    basic_auth  config["token"], 'x'
-    post "/room/#{config['room_id']}/speak.json", :body => { :message => { :body => message, :type => 'Textmessage' } }.to_json
+    self.class.base_uri    "https://#{config['subdomain']}.campfirenow.com"
+    self.class.basic_auth  config["token"], 'x'
+    self.class.post "/room/#{config['room_id']}/speak.json", :body => { :message => { :body => message, :type => 'Textmessage' } }.to_json
   end
 
   private
